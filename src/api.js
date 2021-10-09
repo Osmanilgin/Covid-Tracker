@@ -2,13 +2,13 @@ import axios from 'axios';
 
 export const getCasesData = async (value) => {
     try {
-        const { data: {response}} = await axios.get("https://covid-193.p.rapidapi.com/statistics" , 
+        const { data: {response}} = await axios.get(process.env.REACT_APP_COVID_URL , 
         {
            params:{country: value},
         
         headers: {
-            'x-rapidapi-host': 'covid-193.p.rapidapi.com',
-            'x-rapidapi-key': 'cd5ae666e1mshe30ce4cf956d6d3p1f462ejsn42310dde83c4'
+            'x-rapidapi-host': process.env.REACT_APP_COVID_HOST,
+            'x-rapidapi-key': process.env.REACT_APP_COVID_KEY
         },})
      return response;
     }
@@ -19,13 +19,13 @@ export const getCasesData = async (value) => {
 
 export const getCountries = async () => {
     try {
-        const { data: {response}} = await axios.get("https://covid-193.p.rapidapi.com/countries" , 
+        const { data: {response}} = await axios.get(process.env.REACT_APP_COVID_URL2 , 
         {
     
         
         headers: {
-            'x-rapidapi-host': 'covid-193.p.rapidapi.com',
-            'x-rapidapi-key': 'cd5ae666e1mshe30ce4cf956d6d3p1f462ejsn42310dde83c4'
+            'x-rapidapi-host': process.env.REACT_APP_COVID_HOST,
+            'x-rapidapi-key': process.env.REACT_APP_COVID_KEY
         },})
      return response;
     }
